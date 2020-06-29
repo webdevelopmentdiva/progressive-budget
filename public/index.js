@@ -1,3 +1,5 @@
+import saveOfflineRecord from "./db.mjs";
+
 let transactions = [];
 let myChart;
 
@@ -136,7 +138,7 @@ function sendTransaction(isAdding) {
   })
   .catch(err => {
     // fetch failed, so save in indexed db
-    saveRecord(transaction);
+    saveOfflineRecord(transaction);
 
     // clear form
     nameEl.value = "";
